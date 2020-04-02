@@ -36,6 +36,15 @@ nodemon is installed, simply run `nodemon`.
 3. 404 route for other routes which aren't covered.
 
 ```
+```markdown
+# Available routes.
+- questions/
+    - /create/
+    - /:id/options/create/
+    - /:id/delete/
+    - /:id/add_vote/
+    - /:id/
+```
 
 ```markdown
 # Technologies and libraries used(Project dependencies):

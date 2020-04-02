@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/questions'
                                       , { 
                                           useUnifiedTopology: true,
-                                          useNewUrlParser   : true
+                                          useNewUrlParser   : true,
+                                          useCreateIndex: true
                                         }
                             );
 // Get connection object.
