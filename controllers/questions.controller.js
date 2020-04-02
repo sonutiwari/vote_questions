@@ -67,4 +67,35 @@ questionsController.createOption = async (req, res) => {
     });
 }
 
+questionsController.deleteQuestion = async (req, res) => {
+    let id = req.params.id;
+    try {
+        await questionModel.deleteOne({id: id});
+    } catch (error) {
+        return res.send({
+            status: 400,
+            message: "DB Error" + error
+        });
+    }
+    return res.send({
+        status: 200,
+        message: "Question deleted successfully"
+    });
+    
+}
+
+questionsController.showAllOptions = async (req, res)=>{
+    let id = req.params.id;
+    let ans;
+    try {
+        ans = await questionModel.findOne({id: id}).populate("options");
+    } catch (error) {
+        return res.send({
+            status: 400,
+            message: "DB Error" + error
+        });
+    }
+    return res.send(ans);
+}
+
 module.exports = questionsController;
