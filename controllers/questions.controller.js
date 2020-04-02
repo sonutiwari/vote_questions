@@ -17,12 +17,12 @@ questionsController.createQuestion = async (req, res) => {
     try {
         await document.save();
     } catch (error) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "DB Error"
         });
     }
-    return res.send({
+    return res.status(200).send({
         status: 200,
         message: "Question saved successfully"
     });
@@ -42,13 +42,13 @@ questionsController.createOption = async (req, res) => {
     options.id = id;
     options.votes = 0;
     console.log(req.headers.host, req.protocol);
-    options.link  = req.protocol + "://" + req.headers.host + "/" + req.params.id + "/" + id + "/add_vote";
+    options.link  = req.protocol + "://" + req.headers.host + "/options" + "/" + id + "/add_vote";
     console.log(options);
     let document = new optionsModel(options);
     try {
         await document.save();
     } catch (error) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "options DB Error"
         });
@@ -56,12 +56,12 @@ questionsController.createOption = async (req, res) => {
     try {
         await questionModel.findOneAndUpdate({id: req.params.id}, { $push: { options: document } } );
     } catch (error) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "DB Error" + error
         });
     }
-    return res.send({
+    return res.status(200).send({
         status: 200,
         message: "Question saved successfully"
     });
@@ -72,12 +72,12 @@ questionsController.deleteQuestion = async (req, res) => {
     try {
         await questionModel.deleteOne({id: id});
     } catch (error) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "DB Error" + error
         });
     }
-    return res.send({
+    return res.status(200).send({
         status: 200,
         message: "Question deleted successfully"
     });
@@ -90,12 +90,12 @@ questionsController.showAllOptions = async (req, res)=>{
     try {
         ans = await questionModel.findOne({id: id}).populate("options");
     } catch (error) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "DB Error" + error
         });
     }
-    return res.send(ans);
+    return res.status(200).send(ans);
 }
 
 module.exports = questionsController;
