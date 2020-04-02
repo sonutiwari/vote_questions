@@ -3,8 +3,6 @@ Question vote API
 
 API Mock test 3 of coding Ninjas
 
-Requirements can be found here [Requirements](./assets/requirements.txt).
-
 ### Set Up
 
 ```markdown
@@ -44,6 +42,9 @@ nodemon is installed, simply run `nodemon`.
     - /:id/delete/
     - /:id/add_vote/
     - /:id/
+- options/
+    - /:id/delete
+    - /:id/add_vote
 ```
 
 ```markdown
