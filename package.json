@@ -14,16 +14,11 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sonutiwari/Coding-Ninjas-API-mock2/issues"
+    "url": "https://github.com/sonutiwari/vote_questions/issues"
   },
-  "homepage": "https://github.com/sonutiwari/Coding-Ninjas-API-mock2#readme",
+  "homepage": "https://github.com/sonutiwari/vote_questions#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
-    "cookie-session": "^1.4.0",
     "express": "^4.17.1",
-    "express-jwt": "^5.3.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.6",
-    "validator": "^13.0.0"
+    "mongoose": "^5.9.6"
   }
 }

@@ -1,6 +1,10 @@
-let questionModel = require('../models/questions.model');
+// import libraries.
 let optionsModel  = require('../models/options.model');
+
+// Declare object.
 let optionController = {};
+
+// Delete method.
 optionController.deleteOption = async (req, res) => {
     let id = req.params.id;
     try {
@@ -17,6 +21,7 @@ optionController.deleteOption = async (req, res) => {
     });
 }
 
+// Add vote method.
 optionController.addVote = async (req, res) => {
     try {
         optionsModel.findOneAndUpdate({id :req.params.id}, {$inc : {'votes' : 1}}).exec();
@@ -32,4 +37,5 @@ optionController.addVote = async (req, res) => {
     });
 }
 
+// Export module.
 module.exports = optionController;

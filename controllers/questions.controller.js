@@ -1,6 +1,7 @@
 let questionModel = require('../models/questions.model');
 let optionsModel  = require('../models/options.model');
 let questionsController = {};
+
 questionsController.createQuestion = async (req, res) => {
     let id = 0;
     try {
@@ -63,7 +64,7 @@ questionsController.createOption = async (req, res) => {
     }
     return res.status(200).send({
         status: 200,
-        message: "Question saved successfully"
+        message: "Option saved successfully"
     });
 }
 

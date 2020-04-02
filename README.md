@@ -25,26 +25,19 @@ API Mock test 3 of coding Ninjas
 nodemon is installed, simply run `nodemon`.
 ```
 
-```markdown
-# Route Description
-
-- There are 3 Routes in this API.
-1. Root [Route](http://localhost:3000/)
-2. Register route which is POST route for form data.
-3. 404 route for other routes which aren't covered.
-
 ```
 ```markdown
 # Available routes.
 - questions/
-    - /create/
-    - /:id/options/create/
-    - /:id/delete/
-    - /:id/add_vote/
-    - /:id/
+    - /create/ ----------------------> POST route (Creates new Question)
+    - /:id/options/create/ ----------> POST route (Creates new option for that question)
+    - /:id/delete/ ------------------> Delete route (delete question)
+    - /:id/          ----------------> GET route (get question details)
 - options/
-    - /:id/delete
-    - /:id/add_vote
+    - /:id/delete  ------------------> (Delete an option)
+    - /:id/add_vote -----------------> (Add votes to the option)
+- 404/
+    - Everything else.
 ```
 
 ```markdown
@@ -53,8 +46,4 @@ nodemon is installed, simply run `nodemon`.
 2. MongoDB
 3. Mongoose
 4. NodeJS
-5. Validator
-6. cookie-session
-7. jsonwebtoken
-8. bcrypt
 ```
